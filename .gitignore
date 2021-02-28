@@ -1,0 +1,15 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/CreditSuisse.Test/bin/Debug
+/CreditSuisse.Test/obj/Debug
+/CreditSuisse.Test/Properties/AssemblyInfo.cs
+/CreditSuisse.Test.Entitiy/bin/Debug
+/CreditSuisse.Test.Facede/bin/Debug
+/CreditSuisse.Test.Facede/obj/Debug
+/CreditSuisse.Test.Service/bin/Debug
+/CreditSuisse.Test.Service/obj/Debug
+/CreditSuisse.Test.UI/bin/Debug
+/CreditSuisse.Test.UI/obj/Debug
+/CreditSuisse.Test.Entitiy/obj/Debug
