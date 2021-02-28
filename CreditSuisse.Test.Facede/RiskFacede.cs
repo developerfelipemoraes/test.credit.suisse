@@ -15,6 +15,11 @@ namespace CreditSuisse.Test.Facede
             serviceRisk = new ServiceRisk();
         }
 
+        /// <summary>
+        /// Get Risk Trade on Service
+        /// </summary>
+        /// <param name="trades">List Trandes</param>
+        /// <returns>list of risks</returns>
         public IList<string> GetRiskTrade(IList<ITrade> trades)
         {
             IList<string> listRiskTrade = new List<string>();

@@ -2,6 +2,7 @@
 using CreditSuisse.Test.Service.Interface;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 
 namespace CreditSuisse.Test.Service
 {
@@ -30,14 +31,16 @@ namespace CreditSuisse.Test.Service
 
         private string GetPublicRisk(double operationValue)
         {
-            TradeRiskService = new PrivateRiskService();
-            return TradeRiskService.GetRisk(operationValue, 0);
+            double valorRisk = Double.Parse(ConfigurationManager.AppSettings["PUBLIC_SECTOR_RISK_VALUE"].ToString());
+            TradeRiskService = new PrivateSectorRiskService();
+            return TradeRiskService.GetRisk(operationValue, valorRisk);
         }
 
         private string GetPrivateRisk(double operationValue)
         {
-            TradeRiskService = new PublicRiskService();
-            return TradeRiskService.GetRisk(operationValue, 0);
+            double valorRisk = Double.Parse(ConfigurationManager.AppSettings["PRIVATE_SECTOR_RISK_VALUE"].ToString());
+            TradeRiskService = new PublicSectorRiskService();
+            return TradeRiskService.GetRisk(operationValue, valorRisk);
         }
     }
 }

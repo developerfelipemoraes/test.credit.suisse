@@ -1,13 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CreditSuisse.Test.Service.Interface
+﻿namespace CreditSuisse.Test.Service.Interface
 {
+    /// <summary>
+    /// Interface of Trade Risk
+    /// </summary>
     public interface  ITradeRiskService
     {
+        /// <summary>
+        /// Get Risk Trade
+        /// </summary>
+        /// <param name="value">value trade operation</param>
+        /// <param name="parameterRisk">parameter to get risk type</param>
+        /// <returns>Type Risk</returns>
         string GetRisk(double value, double limitingValueRisk);
     }
 }

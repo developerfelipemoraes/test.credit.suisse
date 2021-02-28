@@ -3,6 +3,8 @@ using CreditSuisse.Test.Entitiy.Interface;
 using CreditSuisse.Test.Facede;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace CreditSuisse.Test.UI
@@ -18,24 +20,63 @@ namespace CreditSuisse.Test.UI
 
         private void btoRiskTrade_Click(object sender, EventArgs e)
         {
-            
-            IRiskFacede riskFacede = new RiskFacede();
+            try
+            {
+                IRiskFacede riskFacede = new RiskFacede();
 
-            var trade = new Trade {
-                Value = Convert.ToDouble (txtValue.Text.ToString()), 
-                ClientSector = cmbClientSector.SelectedItem.ToString() 
-            };
-            Trades.Add(trade);
-            dataGridView1.DataSource = Trades;
+                double value = 0.00;
+
+                Double.TryParse(txtValue.Text.ToString(), out value);
+
+                if (value == 0)
+                {
+                    MessageBox.Show("The value must be greater than zero, and cannot contain letters and special characters.");
+                }
+
+                var trade = new Trade
+                {
+                    Value = Convert.ToDouble(txtValue.Text.ToString()),
+                    ClientSector = cmbClientSector.SelectedItem.ToString()
+                };
+
+                Trades.Add(trade);
+
+                var bindingList = new BindingList<ITrade>(Trades);
+
+                var source = new BindingSource(bindingList, null);
+
+                dataGridView1.DataSource = source;
+
+                dataGridView1.Refresh();
+
+                txtValue.Text = string.Empty;
+
+                cmbClientSector.Text = string.Empty;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            IRiskFacede riskFacede = new RiskFacede();
+            try
+            {
+                IRiskFacede riskFacede = new RiskFacede();
 
-            var resultRisk = riskFacede.GetRiskTrade(this.Trades);
+                var resultRisk = riskFacede.GetRiskTrade(this.Trades);
 
-            dataGridView2.DataSource = resultRisk;
+                dataGridView2.DataSource = resultRisk.Select(x => new { Value = x }).ToList(); ;
+
+                dataGridView2.Refresh();
+
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }
