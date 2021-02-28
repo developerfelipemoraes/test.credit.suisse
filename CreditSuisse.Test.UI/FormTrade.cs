@@ -11,22 +11,20 @@ namespace CreditSuisse.Test.UI
 {
     public partial class frmTrade : Form
     {
-        private IList<ITrade> Trades = new List<ITrade>();
+        private readonly IList<ITrade> Trades = new List<ITrade>();
 
         public frmTrade()
         {
             InitializeComponent();
         }
 
-        private void btoRiskTrade_Click(object sender, EventArgs e)
+        private void BtoRiskTrade_Click(object sender, EventArgs e)
         {
             try
             {
                 IRiskFacede riskFacede = new RiskFacede();
 
-                double value = 0.00;
-
-                Double.TryParse(txtValue.Text.ToString(), out value);
+                Double.TryParse(txtValue.Text.ToString(), out double value);
 
                 if (value == 0)
                 {
@@ -60,7 +58,7 @@ namespace CreditSuisse.Test.UI
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Button1_Click(object sender, EventArgs e)
         {
             try
             {

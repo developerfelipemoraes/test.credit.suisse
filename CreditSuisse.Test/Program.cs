@@ -8,7 +8,7 @@ namespace CreditSuisse.Test
 {
     public class Program
     {
-        static void Main(string[] args)
+        private static void Main()
         {
             try
             {

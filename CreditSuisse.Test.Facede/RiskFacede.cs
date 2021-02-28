@@ -22,9 +22,7 @@ namespace CreditSuisse.Test.Facede
         /// <returns>list of risks</returns>
         public IList<string> GetRiskTrade(IList<ITrade> trades)
         {
-            IList<string> listRiskTrade = new List<string>();
-
-            listRiskTrade = serviceRisk.GetRiskTrade(trades);
+            var listRiskTrade = serviceRisk.GetRiskTrade(trades);
 
             return listRiskTrade;
         }
