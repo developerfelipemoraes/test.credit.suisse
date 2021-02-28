@@ -1,5 +1,5 @@
 # test.credit.suisse
-Credit Suisse Test C#, SQL, done by Felipe Moraes Aneas
+Credit Suisse Test C#  done by Felipe Moraes Aneas
 
 This test was done by Felipe Moraes Aneas.
 
