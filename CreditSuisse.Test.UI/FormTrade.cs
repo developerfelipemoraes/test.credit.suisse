@@ -35,7 +35,7 @@ namespace CreditSuisse.Test.UI
 
                 var trade = new Trade
                 {
-                    Value = Convert.ToDouble(txtValue.Text.ToString()),
+                    Value = Convert.ToDouble(value),
                     ClientSector = cmbClientSector.SelectedItem.ToString()
                 };
 
